@@ -1,1 +1,3 @@
-# andersen-hw
+# Andersen-HW
+
+### Репозиторий для тестовых заданий компании Andersen.
