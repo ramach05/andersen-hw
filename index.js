@@ -1,7 +1,7 @@
-const firstValue = prompt("Введите первое число");
-const secondValue = prompt("Введите второе число");
-
 // -------------------- 1 задача --------------------
+
+const firstValue = prompt("Введите число");
+const secondValue = prompt("Введите систему счисления");
 
 function convertNumber(a, b) {
   const number = Number(a);
@@ -17,14 +17,22 @@ console.log(convertNumber(firstValue, secondValue));
 
 // -------------------- 2 задача --------------------
 
-function getNumber(a, b) {
-  const number1 = Number(a);
-  const number2 = Number(b);
+const thirdValue = prompt("Введите первое число");
+const number1 = Number(thirdValue);
 
-  if (isNaN(number1) || isNaN(number2)) {
-    return console.log("Некорректный ввод!");
+if (isNaN(number1)) {
+  console.log("Некорректный ввод!");
+} else {
+  const fourthValue = prompt("Введите второе число");
+  const number2 = Number(fourthValue);
+
+  if (isNaN(number2)) {
+    console.log("Некорректный ввод!");
+  } else {
+    console.log(makeOperations(thirdValue, fourthValue));
   }
-  return `Ответ: ${number1 + number2}, ${number1 / number2}`;
 }
 
-console.log(getNumber(firstValue, secondValue));
+function makeOperations(a, b) {
+  return `Ответ: ${a + b}, ${a / b}`;
+}
