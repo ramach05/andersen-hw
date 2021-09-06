@@ -62,4 +62,38 @@ function makeObjectDeepCopy(obj) {
   return res;
 }
 
-console.log(makeObjectDeepCopy(test));
+// console.log(makeObjectDeepCopy(test));
+
+// -------------------- 2 задача --------------------
+
+function selectFromInterval(arrNum, firstValue, secondValue) {
+  if (
+    !Array.isArray(arrNum) ||
+    arrNum.some((i) => isNaN(i)) ||
+    isNaN(firstValue) ||
+    isNaN(secondValue)
+  ) {
+    throw new Error("Ошибка!");
+  }
+
+  let firstIndex;
+  let secondIndex;
+
+  if (firstValue < secondValue) {
+    firstIndex = firstValue;
+    secondIndex = secondValue;
+  } else {
+    firstIndex = secondValue;
+    secondIndex = firstValue;
+  }
+
+  const res = arrNum.filter(
+    (value) => value >= firstIndex && value <= secondIndex
+  );
+
+  return res;
+}
+
+console.log(selectFromInterval([1, 3, 5], 5, 2));
+console.log(selectFromInterval([-2, -15, 0, 4], -13, -5));
+console.log(selectFromInterval(["aaa"], 2, 3));
