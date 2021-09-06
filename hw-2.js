@@ -1,29 +1,3 @@
-// -------------------- 1 задача (глубокая копия объекта) --------------------
-
-const test = {
-  a: 42,
-  b: "asd",
-  c: {
-    as: 4242,
-    qw: "qweqwe",
-  },
-  d: {
-    asd: 424242,
-    zxc: "zxczxc",
-    78: {
-      34: function dd() {
-        console.log("some");
-      },
-      tyui: [45, "234", 567],
-      "ty 42 ui": 42424242,
-    },
-  },
-  e: function ee() {
-    console.log("some other");
-  },
-  f: [],
-};
-
 function makeObjectDeepCopy(obj) {
   if (typeof obj !== "object" || obj === null || Array.isArray(obj)) {
     return console.log("Нужно передать объект!");
@@ -62,10 +36,6 @@ function makeObjectDeepCopy(obj) {
   return res;
 }
 
-// console.log(makeObjectDeepCopy(test));
-
-// -------------------- 2 задача (выбрать из интервала) --------------------
-
 function selectFromInterval(arrNum, firstValue, secondValue) {
   if (
     !Array.isArray(arrNum) ||
@@ -93,12 +63,6 @@ function selectFromInterval(arrNum, firstValue, secondValue) {
 
   return res;
 }
-
-// console.log(selectFromInterval([1, 3, 5], 5, 2));
-// console.log(selectFromInterval([-2, -15, 0, 4], -13, -5));
-// console.log(selectFromInterval(["aaa"], 2, 3));
-
-// -------------------- 3 задача (итерировать объект) --------------------
 
 const myIterable = { from: 1, to: 4 };
 
@@ -129,7 +93,3 @@ myIterable[Symbol.iterator] = function () {
     },
   };
 };
-
-for (let item of myIterable) {
-  console.log(item);
-}
