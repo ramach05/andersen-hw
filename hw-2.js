@@ -1,5 +1,5 @@
 function makeObjectDeepCopy(obj) {
-  if (typeof obj !== "object" || obj === null || Array.isArray(obj)) {
+  if (typeof obj !== "object" || obj === null) {
     return console.log("Нужно передать объект!");
   }
 
