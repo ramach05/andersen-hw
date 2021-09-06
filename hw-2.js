@@ -64,7 +64,7 @@ function makeObjectDeepCopy(obj) {
 
 // console.log(makeObjectDeepCopy(test));
 
-// -------------------- 2 задача --------------------
+// -------------------- 2 задача (выбрать из интервала) --------------------
 
 function selectFromInterval(arrNum, firstValue, secondValue) {
   if (
@@ -94,6 +94,42 @@ function selectFromInterval(arrNum, firstValue, secondValue) {
   return res;
 }
 
-console.log(selectFromInterval([1, 3, 5], 5, 2));
-console.log(selectFromInterval([-2, -15, 0, 4], -13, -5));
-console.log(selectFromInterval(["aaa"], 2, 3));
+// console.log(selectFromInterval([1, 3, 5], 5, 2));
+// console.log(selectFromInterval([-2, -15, 0, 4], -13, -5));
+// console.log(selectFromInterval(["aaa"], 2, 3));
+
+// -------------------- 3 задача (итерировать объект) --------------------
+
+const myIterable = { from: 1, to: 4 };
+
+myIterable[Symbol.iterator] = function () {
+  const current = this.from;
+  const last = this.to;
+
+  if (
+    isNaN(current) ||
+    isNaN(last) ||
+    last < current ||
+    current === "" ||
+    last === ""
+  ) {
+    throw new Error("Ошибка!");
+  }
+
+  return {
+    current: current,
+    last: last,
+
+    next() {
+      if (this.current <= this.last) {
+        return { done: false, value: this.current++ };
+      } else {
+        return { done: true };
+      }
+    },
+  };
+};
+
+for (let item of myIterable) {
+  console.log(item);
+}
