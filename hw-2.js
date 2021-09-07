@@ -2,6 +2,9 @@ function makeObjectDeepCopy(obj) {
   if (typeof obj !== "object" || obj === null) {
     return console.log("Нужно передать объект!");
   }
+  if (Array.isArray(obj)) {
+    return [...obj];
+  }
 
   const res = {};
 
@@ -35,6 +38,9 @@ function makeObjectDeepCopy(obj) {
   recursionFn(obj, res);
   return res;
 }
+
+const asd = [42, "asdasd", "886"];
+console.log(makeObjectDeepCopy(asd));
 
 function selectFromInterval(arrNum, firstValue, secondValue) {
   if (
