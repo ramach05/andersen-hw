@@ -2,6 +2,9 @@ function makeObjectDeepCopy(obj) {
   if (typeof obj !== "object" || obj === null) {
     return console.log("Нужно передать объект!");
   }
+  if (Array.isArray(obj)) {
+    return [...obj];
+  }
 
   const res = {};
 
