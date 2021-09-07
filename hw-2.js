@@ -39,9 +39,6 @@ function makeObjectDeepCopy(obj) {
   return res;
 }
 
-const asd = [42, "asdasd", "886"];
-console.log(makeObjectDeepCopy(asd));
-
 function selectFromInterval(arrNum, firstValue, secondValue) {
   if (
     !Array.isArray(arrNum) ||
