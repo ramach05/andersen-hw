@@ -1,12 +1,8 @@
 Array.prototype.myFilter = function (callbackFn) {
-  const arr = this;
   const res = [];
 
-  arr.forEach((el) => {
-    const elem = el.toString();
-    const ind = arr.indexOf(el);
-
-    if (callbackFn(elem, ind, arr)) {
+  this.forEach((el, ind, arr) => {
+    if (callbackFn(el, ind, arr)) {
       res.push(el);
     }
   });
