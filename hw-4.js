@@ -8,7 +8,7 @@ function concatStrings(firstWord, separator) {
     }
 
     const newStr = firstWord + separator + nextWord;
-    return concatStrings(newStr);
+    return concatStrings(newStr, separator);
   };
 }
 
