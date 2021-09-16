@@ -17,6 +17,7 @@ class Stack {
     this.size += 1;
     return this.top;
   };
+
   pop = () => {
     if (this.size < 1) throw new Error("Ошибка!");
 
@@ -25,14 +26,17 @@ class Stack {
     this.size -= 1;
     return deletedElem;
   };
+
   peek = () => {
     if (this.size < 1) return null;
     return this.top;
   };
+
   isEmpty = () => {
     if (this.size < 1) return true;
     return false;
   };
+
   toArray = () => {
     let currentSize = this.size;
     if (!currentSize) return [];
