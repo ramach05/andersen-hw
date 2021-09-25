@@ -1,3 +1,5 @@
+// <button type="button" id="button1">Some button for hw-6</button>;
+
 const button = document.querySelector("#button1");
 
 button.addEventListener("click", () => {

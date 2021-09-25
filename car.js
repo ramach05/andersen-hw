@@ -140,3 +140,35 @@ class Car {
 }
 
 module.exports = Car;
+
+//------------------------------------------------------------------
+const asd = new Car();
+console.log("asd :>> ", asd);
+
+asd.brand = "my new brand";
+console.log("asd.brand :>> ", asd.brand);
+asd.model = "my model";
+console.log("asd.model :>> ", asd.model);
+asd.yearOfManufacturing = 2007;
+console.log("asd.yearOfManufacturing :>> ", asd.yearOfManufacturing);
+asd.maxSpeed = 150;
+console.log("asd.maxSpeed :>> ", asd.maxSpeed);
+asd.maxFuelVolume = 20;
+console.log("asd.maxFuelVolume :>> ", asd.maxFuelVolume);
+asd.fuelConsumption = 2;
+console.log("asd.fuelConsumption :>> ", asd.fuelConsumption);
+
+asd.start();
+asd.fillUpGasTank(20);
+asd.drive(150, 3);
+
+console.log("asd :>> ", asd);
+
+asd.shutDownEngine();
+
+console.log("asd.currentFuelVolume :>> ", asd.currentFuelVolume);
+console.log("asd.isStarted :>> ", asd.isStarted);
+console.log("asd.mileage :>> ", asd.mileage);
+
+console.log("asd :>> ", asd);
+console.log(42);
