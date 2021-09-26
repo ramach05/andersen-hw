@@ -1,9 +1,10 @@
-const viewer = document.querySelector("#viewer");
-const equalBtn = document.querySelector("#equals");
-const resetBtn = document.querySelector("#reset");
-const deleteBtn = document.querySelector("#delete");
-const switchBtn = document.querySelector("#switch");
-const numBtnList = document.querySelectorAll(".num");
+const body = document.querySelector("body");
+const viewer = body.querySelector("#viewer");
+const equalBtn = body.querySelector("#equals");
+const resetBtn = body.querySelector("#reset");
+const deleteBtn = body.querySelector("#delete");
+const numWrapp = body.querySelector(".num-wrapp");
+const switchBtn = numWrapp.querySelector("#switch");
 
 const resetMessage = "Начинайте вычисления...";
 const errorMessage = "Введите корректное значение!";
@@ -12,13 +13,11 @@ let result = "";
 equalBtn.addEventListener("click", handleClickEqual);
 resetBtn.addEventListener("click", handleReset);
 deleteBtn.addEventListener("click", handleDelete);
-switchBtn.addEventListener("click", handleClickNum);
+numWrapp.addEventListener("click", handleClickNum);
 
-numBtnList.forEach((i) => {
-  i.addEventListener("click", handleClickNum);
-});
+function handleClickNum(e) {
+  if (e.target === numWrapp) return;
 
-function handleClickNum() {
   if (
     viewer.textContent.includes(resetMessage) ||
     viewer.textContent.includes(errorMessage) ||
@@ -27,23 +26,23 @@ function handleClickNum() {
     result = "";
   }
 
-  if (this === switchBtn && viewer.textContent.slice(-1) === "-") {
+  if (e.target === switchBtn && viewer.textContent.slice(-1) === "-") {
     result = `${result.slice(0, -1)}+`;
     viewer.textContent = result;
     return;
   }
-  if (this === switchBtn && viewer.textContent.slice(-1) === "+") {
+  if (e.target === switchBtn && viewer.textContent.slice(-1) === "+") {
     result = `${result.slice(0, -1)}-`;
     viewer.textContent = result;
     return;
   }
-  if (this === switchBtn) {
+  if (e.target === switchBtn) {
     result += "-";
     viewer.textContent = result;
     return;
   }
 
-  result += this.textContent;
+  result += e.target.textContent;
   viewer.textContent = result;
 }
 
