@@ -1,13 +1,14 @@
 // Stack ----------------------------
 
 class Stack {
+  size = 0;
+  top = null;
+
   constructor(maxSize = 10) {
     if (typeof maxSize !== "number" || !isFinite(maxSize))
       throw new Error("Ошибка!");
 
     this.maxSize = maxSize;
-    this.size = 0;
-    this.top = null;
   }
 
   push = (elem) => {
@@ -77,7 +78,7 @@ class Elem {
 
 // LinkedList ----------------------------
 
-class Node {
+class NodeEl {
   constructor(elem) {
     this.elem = elem;
     this.next = null;
@@ -91,7 +92,7 @@ class LinkedList {
   }
 
   append(elem) {
-    const node = new Node(elem);
+    const node = new NodeEl(elem);
 
     if (!this.length) {
       this.head = node;
@@ -108,7 +109,7 @@ class LinkedList {
   }
 
   prepend(elem) {
-    const node = new Node(elem);
+    const node = new NodeEl(elem);
 
     if (!this.length) {
       this.head = node;
@@ -157,5 +158,46 @@ class LinkedList {
       linkedList.append(i);
     }
     return linkedList;
+  }
+}
+
+// Queue -------------------------
+
+class NodeEl {
+  next = null;
+
+  constructor(prev) {
+    this.prev = prev;
+  }
+}
+
+class Queue {
+  length = 0;
+  queue = [];
+
+  addEl() {
+    if (this.length) {
+      const prevEl = this.queue[this.queue.length - 1];
+      const newEl = new NodeEl(prevEl);
+      this.queue.push(newEl);
+      prevEl.next = newEl;
+    } else {
+      this.queue.push(new NodeEl());
+    }
+
+    this.length++
+  }
+
+  deleteEl() {
+    if (this.length < 1) throw new Error('Очередь пустая')
+
+    this.queue.unshift();
+    this.queue[0].prev = undefined;
+
+    this.length--;
+  }
+
+  getQueueLength() {
+    return this.length;
   }
 }
